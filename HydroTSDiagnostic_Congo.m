@@ -329,10 +329,10 @@ subplot 122
 
 clear Qpdf Qcdf pdf1 pdf2 pdf3
 
-Qcdf = histogram(Qd.Qrec, 100, 'Normalization', 'cdf');
+Qcdf = histogram(Qd.Qrec, 1000, 'Normalization', 'cdf');
 
 figure; hold on
-plot(fliplr(Qcdf.Values)*100,(Qcdf.BinEdges(1:end-1)+Qcdf.BinEdges(2:end))/2, 'k')%, 'marker', '.', 'markersize', 10, 'markeredgecolor', 'k')
+plot((1-Qcdf.Values)*100,(Qcdf.BinEdges(1:end-1)+Qcdf.BinEdges(2:end))/2, 'k')%, 'marker', '.', 'markersize', 10, 'markeredgecolor', 'k')
 grid on
 ylim([min(Qd.Qrec), max(Qd.Qrec)])
 ylabel('Discharge(m3/s)', 'fontsize', fs)
@@ -584,7 +584,7 @@ f = f(1:L/2);
 figure
 loglog(f,P1, 'k')
 grid on
-xlabel('Fréquence (cycle par an)', 'fontsize', fs)
+xlabel('FrÃ©quence (cycle par an)', 'fontsize', fs)
 ylabel('abs(FFT)', 'fontsize', fs)
 xlim([.01, 100])
 ylim([.1 10^5])
